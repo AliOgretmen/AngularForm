@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonService } from '../services/person.service';
+import { Router }                 from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -19,6 +20,7 @@ export class AboutComponent implements OnInit {
     eintrittsdatum: "",
     bonus: ""
   }
+  showForm: boolean = false;
   persons:any[];
   heroForm: FormGroup;
   feedbackForm: FormGroup;
@@ -66,7 +68,9 @@ export class AboutComponent implements OnInit {
     },
   };
 
-  constructor(private fb: FormBuilder, private personService: PersonService) { }
+  constructor(private fb: FormBuilder,
+     private personService: PersonService,
+     private router: Router) { }
 
   ngOnInit() {
     this.personService.findAll().subscribe(result=>{
@@ -76,12 +80,8 @@ export class AboutComponent implements OnInit {
     this.createForm();
   }
 
-  getMember(persnr){
-    this.personService.findOne(persnr).subscribe(result => {
-      console.log(result);
-      this.person=result.data.personal[0];
-
-    })
+  showMemberDetails(persnr){
+    this.router.navigate(['/about/details', persnr]);
   }
 
   createForm() {
@@ -96,5 +96,5 @@ export class AboutComponent implements OnInit {
 
     });
   }
-
+ 
 }

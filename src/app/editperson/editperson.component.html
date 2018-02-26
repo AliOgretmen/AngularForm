@@ -1,3 +1,33 @@
-<p>
-  editperson works!
-</p>
+<div>
+<div>
+  <div>
+   
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()" novalidate class="about-form" *ngIf="editForm">
+
+
+      <mat-input-container>
+        <input matInput placeholder="Name" formControlName="name" type="text" required>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Personal Number" formControlName="persnr" type="text" required>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Telefon Number" formControlName="tel" type="text" required>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Sälar" formControlName="salaer" type="text" required>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Abteilungsnumber" formControlName="abtnr" type="text" required>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Wohnort" formControlName="wohnort" type="text" required>
+      </mat-input-container>
+    </form>
+    <div class="buttons">
+        <button (click)="newPerson(person)" type="submit" mat-button class="background-primary text-floral-white">New Person</button>
+        <button (click)="updatePerson(person)" type="submit" mat-button class="background-primary text-floral-white">Update</button>
+        <button (click)="deletePerson(person.persnr)" type="submit" mat-button class="background-primary text-floral-white">Delete</button>
+      </div>
+  </div>
+</div>

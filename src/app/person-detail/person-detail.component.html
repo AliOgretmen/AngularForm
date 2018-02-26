@@ -1,3 +1,11 @@
-<p>
-  person-detail works!
-</p>
+<div *ngIf="person">
+  <p>Infamtion about selected person!</p>
+  <p><span>Name:</span>Ahmet {{person.name}}</p>
+  <p><span>Name:</span>Ahmet {{person.name}}</p>
+  <p><span>Name:</span>Ahmet {{person.name}}</p>
+  <p><span>Name:</span>Ahmet {{person.name}}</p>
+  <p><span>Name:</span>Ahmet {{person.name}}</p>
+  <p><span>Name:</span>Ahmet {{person.name}}</p>
+  <button [routerLink]="['/about/add']">Add</button>
+  <button [routerLink]="['/about/edit', person.persnr]">Edit</button>
+</div>
