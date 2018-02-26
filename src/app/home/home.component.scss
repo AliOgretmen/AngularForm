@@ -1,0 +1,26 @@
+.home-form{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.person-content{
+    width: 30%;
+}
+.person-form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+.member-item{
+    margin: 10px 40px;
+    height: 30px;
+}
+.member-item:hover{
+   background: #e3e3e3;
+
+}
+.buttons{
+    flex-direction: row;
+}

@@ -1,0 +1,48 @@
+<div class="home-form">
+  <div class="person-content">
+    <div *ngFor="let p of persons" (click)="getMember(p.persnr)" class="member-item">
+      {{p.name}}
+
+    </div>
+  </div>
+
+  <div>
+    <form novalidate class="person-form" *ngIf="person">
+
+      <mat-input-container>
+        <input matInput placeholder="Person Number" name="persnr" [(ngModel)]="person.persnr" type="text" required>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Name" name="name" [(ngModel)]="person.name" type="text" required>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Telefon Number" name="tel" [(ngModel)]="person.tel" type="text" required>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Salär" name="salaer" [(ngModel)]="person.salaer" type="text" required>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Chef Name" name="chef" [(ngModel)]="person.chef" type="text" required>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Abteilung Number" name="abtnr" [(ngModel)]="person.abtnr" type="text" required>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Wohnort" name="wohnort" [(ngModel)]="person.wohnort" type="text" required>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Eintrittsdatum" name="eintrittsdatum" [(ngModel)]="person.eintrittsdatum" type="text" required>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Bonus" name="bonus" [(ngModel)]="person.bonus" type="text" required>
+      </mat-input-container>
+    </form>
+
+
+    <div class="buttons">
+      <button (click)="newPerson(person)"type="submit" mat-button class="background-primary text-floral-white">New Person</button>
+      <button (click)="updatePerson(person)" type="submit" mat-button class="background-primary text-floral-white">Update</button>
+      <button (click)="deletePerson(person.persnr)"type="submit" mat-button class="background-primary text-floral-white">Delete</button>
+    </div>
+  </div>
+</div>
