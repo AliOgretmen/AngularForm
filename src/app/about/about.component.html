@@ -1,4 +1,11 @@
-<div>
+<div class="about-content">
+    <div class="person-content">
+      <div *ngFor="let p of persons" (click)="getMember(p.persnr)" class="member-item">
+        {{p.name}}
+  
+      </div>
+    </div>
+  
   <div>
     <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" novalidate class="about-form">
 
@@ -22,11 +29,12 @@
         <input matInput placeholder="Wohnort" formControlName="wohnort" type="text" required>
       </mat-input-container>
     </form>
+    <div class="buttons">
+        <button (click)="newPerson(person)" type="submit" mat-button class="background-primary text-floral-white">New Person</button>
+        <button (click)="updatePerson(person)" type="submit" mat-button class="background-primary text-floral-white">Update</button>
+        <button (click)="deletePerson(person.persnr)" type="submit" mat-button class="background-primary text-floral-white">Delete</button>
+      </div>
   </div>
 
-  <div class="buttons">
-    <button (click)="newPerson(person)" type="submit" mat-button class="background-primary text-floral-white">New Person</button>
-    <button (click)="updatePerson(person)" type="submit" mat-button class="background-primary text-floral-white">Update</button>
-    <button (click)="deletePerson(person.persnr)" type="submit" mat-button class="background-primary text-floral-white">Delete</button>
-  </div>
+ 
 </div>

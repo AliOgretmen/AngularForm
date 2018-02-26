@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module'
 import { PersonService } from './services/person.service';
 import { AboutComponent } from './about/about.component';
+import { EditpersonComponent } from './editperson/editperson.component';
+import { PersonDetailComponent } from './person-detail/person-detail.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    AboutComponent
+    AboutComponent,
+    EditpersonComponent,
+    PersonDetailComponent
   ],
   imports: [
     BrowserModule,

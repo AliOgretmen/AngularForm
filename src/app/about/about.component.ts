@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PersonService } from '../services/person.service';
 
 @Component({
   selector: 'app-about',
@@ -7,7 +8,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-
+  person:any = {
+    persnr: "",
+    name: "",
+    tel: "",
+    salaer: "",
+    chef: "",
+    abtnr: "",
+    wohnort: "",
+    eintrittsdatum: "",
+    bonus: ""
+  }
+  persons:any[];
   heroForm: FormGroup;
   feedbackForm: FormGroup;
   feedbackErrMess: string;
@@ -54,10 +66,22 @@ export class AboutComponent implements OnInit {
     },
   };
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private personService: PersonService) { }
 
   ngOnInit() {
+    this.personService.findAll().subscribe(result=>{
+      console.log(result);
+      this.persons = result.data;
+    })
     this.createForm();
+  }
+
+  getMember(persnr){
+    this.personService.findOne(persnr).subscribe(result => {
+      console.log(result);
+      this.person=result.data.personal[0];
+
+    })
   }
 
   createForm() {
